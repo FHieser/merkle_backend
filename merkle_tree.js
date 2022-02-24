@@ -31,7 +31,7 @@ const rootHash = merkleTree.getRoot();
 // be required to derive the Merkle Trees root hash.
 function getProof(claimingAddress){
   let hexProof= merkleTree.getHexProof(claimingAddress);
-  let isVerified=merkleTree.verify(hexProof, claimingAddress, rootHash));
+  let isVerified=merkleTree.verify(hexProof, claimingAddress, rootHash);
   return [isVerified,hexProof];
 }
 

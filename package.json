@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/FHieser/merkle_backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.30",
