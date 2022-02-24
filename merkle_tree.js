@@ -1,3 +1,6 @@
+// Special Thanks to Raz
+//https://github.com/davidrazmadzeExtra/Merkle_Tree_Whitelist_NFT.git
+
 // https://medium.com/@ItsCuzzo/using-merkle-trees-for-nft-whitelists-523b58ada3f9
 //
 // 1. Import libraries. Use `npm` package manager to install
@@ -24,12 +27,11 @@ const leafNodes = whitelistAddresses.map(addr => keccak256(addr));
 const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
 
 // 4. Get root hash of the `merkleeTree` in hexadecimal format (0x)
-// Print out the Entire Merkle Tree.
 const rootHash = merkleTree.getRoot();
 
-// `getHexProof` returns the neighbour leaf and all parent nodes hashes that will
-// be required to derive the Merkle Trees root hash.
 function getProof(claimingAddress) {
+
+  //the claiming address needs to be hashed with keccak256 to work properly
   claimingAddress= keccak256(claimingAddress);
 
   const hexProof = merkleTree.getHexProof(claimingAddress);
@@ -39,4 +41,5 @@ function getProof(claimingAddress) {
   return {isVerified, hexProof};
 }
 
+//Allows the usage of the function outside of the .js file
 exports.getProof = getProof;
