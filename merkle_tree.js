@@ -28,6 +28,7 @@ const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
 
 // 4. Get root hash of the `merkleeTree` in hexadecimal format (0x)
 const rootHash = merkleTree.getRoot();
+console.log("Root Hash: ",rootHash);
 
 function getProof(claimingAddress) {
 
