@@ -26,17 +26,11 @@ app.get('/', (req, res) => {
         //and get hexProof 
         const { isVerified, hexProof } = merkletreejs.getProof(address)
 
-        //If not Verified
-        if (!isVerified) {
-            //send error
-            res.status(406).send({ message: "Not a whitelisted Address" })
-            return
-        }
         //If everything went accordingly send hexProof via the response data
         // Example Axios getter Function to get Info
         //axios.get("http://localhost:3000/",{params: {address:"0X5B38DA6A701C568545DCFCB03FCB875F56BEDDC4"}})
         //.then(response=>this.infoContent=response.data.proof)
-        res.status(200).json({ proof: hexProof })
+        res.status(200).json({ proof: hexProof, isVerified: isVerified })
     }
     catch (e) {
         res.status(400).send({ message: "Could not process." })

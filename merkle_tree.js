@@ -10,6 +10,8 @@ const keccak256 = require('keccak256');
 // 2. Collect list of wallet addresses from competition, raffle, etc.
 // Store list of addresses in some data sheeet (Google Sheets or Excel)
 const whitelistAddresses = [
+  "0xD5E5A6eb56e4B41661Dccc225d1B3C9Ed93D952C",//original
+  "0x14590dF80495714d708FBad4d11f8582a10226a8",//test
   "0X5B38DA6A701C568545DCFCB03FCB875F56BEDDC4",
   "0X5A641E5FB72A2FD9137312E7694D42996D689D99",
   "0XDCAB482177A592E424D1C8318A464FC922E8DE40",
