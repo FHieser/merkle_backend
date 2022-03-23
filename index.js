@@ -36,7 +36,27 @@ app.get('/', (req, res) => {
         res.status(400).send({ message: "Could not process." })
         return
     }
+})
 
+
+//add 0x before you use the merkleRoot in the contract
+//it indicates the hex-encoding
+app.get('/root', (req, res) => {
+
+    try {
+        //get MerkleRoot 
+        const root = merkletreejs.getRoot()
+
+        //If everything went accordingly send Root via the response data
+        // Example Axios getter Function to get Info
+        //axios.get("http://localhost:3000/root")
+        //.then(response=>this.root=response.data.root)
+        res.status(200).json({ root: root })
+    }
+    catch (e) {
+        res.status(400).send({ message: "Could not process." })
+        return
+    }
 })
 
 app.listen(port, () => {
